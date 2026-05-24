@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import orderRoutes from "./src/routes/order.routes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
@@ -19,6 +20,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/food", foodRoutes);
+
+app.use("/api/orders", orderRoutes);
 
 mongoose
     .connect(process.env.MONGO_URI)

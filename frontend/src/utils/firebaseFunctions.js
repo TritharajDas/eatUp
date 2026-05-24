@@ -44,3 +44,27 @@ export const registerUser = async (name, email, password) => {
     });
     return await res.json();
 };
+
+export const createOrder = async (totalAmount, items, token) => {
+    const res = await fetch(`${API_URL}/orders/create`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ totalAmount, items }),
+    });
+    return await res.json();
+};
+
+export const verifyPayment = async (paymentData, token) => {
+    const res = await fetch(`${API_URL}/orders/verify`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(paymentData),
+    });
+    return await res.json();
+};
