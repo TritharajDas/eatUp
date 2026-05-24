@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://eatup-ox6i.onrender.com/api";
 
 export const getAllFoodItems = async () => {
     const res = await fetch(`${API_URL}/food`);

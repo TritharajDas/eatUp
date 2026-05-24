@@ -6,7 +6,7 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import { loginUser, registerUser } from "../utils/firebaseFunctions";
+import { loginUser, registerUser } from "../utils/api";
 
 const Header = () => {
     const [{ user, cartShow, cartItems }, dispatch] = useStateValue();

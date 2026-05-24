@@ -6,7 +6,7 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
-import { createOrder, verifyPayment } from "../utils/firebaseFunctions";
+import { createOrder, verifyPayment } from "../utils/api";
 
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();

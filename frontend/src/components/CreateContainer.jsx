@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MdFastfood, MdCloudUpload, MdDelete, MdFoodBank } from "react-icons/md";
 import { categories } from "../utils/data";
 import Loader from "./Loader";
-import { saveItem, getAllFoodItems } from "../utils/firebaseFunctions";
+import { saveItem, getAllFoodItems } from "../utils/api";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 
