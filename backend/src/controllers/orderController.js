@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import Order from "../models/order.model.js";
