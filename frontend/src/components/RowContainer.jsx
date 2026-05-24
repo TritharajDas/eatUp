@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 import NotFound from "../img/NotFound.svg";
@@ -21,17 +21,13 @@ const RowContainer = ({ flag, scrollValue, data }) => {
         const isFound = cartItems.find((n) => n.id === item.id);
 
         if (!isFound) {
-            // Tweak to Fix the BUG
             item.qty = 1;
             cartDispatch([item, ...cartItems]);
         } else {
-            const newCartIems = cartItems.map((n) => {
-                if (n.id === item.id) {
-                    n.qty += 1;
-                }
-                return n;
-            });
-            cartDispatch([...newCartIems]);
+            const newCartItems = cartItems.map((n) =>
+                n.id === item.id ? { ...n, qty: n.qty + 1 } : n
+            );
+            cartDispatch([...newCartItems]);
         }
     };
 
@@ -84,9 +80,7 @@ const RowContainer = ({ flag, scrollValue, data }) => {
                             </p>
                             <div className="flex items-center gap-8">
                                 <p className="text-lg text-headingColor font-semibold">
-                                    <span className="text-sm text-red-500">
-                                        ₹
-                                    </span>{" "}
+                                    <span className="text-sm text-red-500">₹</span>{" "}
                                     {item?.price}
                                 </p>
                             </div>
